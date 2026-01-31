@@ -1,13 +1,18 @@
 [gd_scene format=3 uid="uid://nla10exysyot"]
 
-[ext_resource type="PackedScene" uid="uid://bu1b5tsn2ds8s" path="res://scenes/player/player.tscn" id="1_18txc"]
 [ext_resource type="PackedScene" uid="uid://dipjf3qhbgso8" path="res://scenes/enviroment/duela.tscn" id="1_51e1t"]
+[ext_resource type="PackedScene" uid="uid://cuwtuyol6g7fm" path="res://scenes/player/rock/rock.tscn" id="2_ygikk"]
+[ext_resource type="PackedScene" uid="uid://f5pfricuwmv7" path="res://scenes/player/paper/player.tscn" id="3_n35nm"]
 
 [node name="Ring" type="Node2D" unique_id=437944324]
 
 [node name="Duela" parent="." unique_id=425698113 instance=ExtResource("1_51e1t")]
 position = Vector2(0, 176)
 
-[node name="Player" parent="." unique_id=1864281695 instance=ExtResource("1_18txc")]
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1076183232]
+
+[node name="Rock" parent="." unique_id=2096297565 instance=ExtResource("2_ygikk")]
+position = Vector2(176, 88)
+
+[node name="Paper" parent="." unique_id=166887175 instance=ExtResource("3_n35nm")]
+position = Vector2(-224, 88)
