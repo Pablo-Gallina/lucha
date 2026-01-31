@@ -12,7 +12,7 @@ position = Vector2(0, 176)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1076183232]
 
 [node name="Rock" parent="." unique_id=2096297565 instance=ExtResource("2_ygikk")]
-position = Vector2(176, 88)
 
 [node name="Paper" parent="." unique_id=166887175 instance=ExtResource("3_n35nm")]
-position = Vector2(-224, 88)
+position = Vector2(403, -2)
+input_prefix = "p2"
