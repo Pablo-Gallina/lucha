@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bqbrld3obpeyh"]
+
+[ext_resource type="Texture2D" uid="uid://c8ierh2fp2id4" path="res://icon.svg" id="1_8mqap"]
+[ext_resource type="Script" uid="uid://bvjoa3yw427fy" path="res://scenes/player/scisors/scisors.gd" id="1_rboc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rboc8"]
+size = Vector2(128, 128)
+
+[node name="Scisors" type="CharacterBody2D" unique_id=1783979083]
+script = ExtResource("1_rboc8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=696490531]
+texture = ExtResource("1_8mqap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030413335]
+shape = SubResource("RectangleShape2D_rboc8")
