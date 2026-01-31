@@ -9,6 +9,11 @@ extends CharacterBody2D
 @export var input_prefix: String = "p1"
 @export var facing_right: bool = true
 @export var hitbox: Area2D
+@export var max_health: int = 100
+@export var health: int = 100
+
+signal health_changed(new_health: int)
+signal died
 
 var is_attacking: bool = false
 var punch_offset: float = 20.0
@@ -75,4 +80,11 @@ func attack():
 	hitbox.disable()
 
 func take_damage(amount: int) -> void:
-	print("Recibí daño:", amount)
+	health = max(health - amount, 0)
+	health_changed.emit(health)
+	if health == 0:
+		#died.emit()
+		_on_died()
+
+func _on_died() -> void:
+	queue_free()
