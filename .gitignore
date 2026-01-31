@@ -1,0 +1,53 @@
+# Godot 4.x
+.godot/
+.import/
+
+# Godot-specific
+*.translation
+export_presets.cfg
+export.cfg
+
+# Archivos de compilación y caché
+*.import
+*.md5
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Builds exportados
+builds/
+exports/
+*.exe
+*.pck
+*.zip
+*.dmg
+*.apk
+*.app
+
+# Android
+.gradle/
+local.properties
+*.keystore
+!debug.keystore
+
+# iOS
+*.dSYM.zip
+*.ipa
+DerivedData/
+
+# Mono (si usas C#)
+.mono/
+data_*/
+mono_crash.*.json
