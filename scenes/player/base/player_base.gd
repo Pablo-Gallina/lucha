@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var facing_right: bool = true
 
 var is_attacking: bool = false
+var punch_offset: float = 20.0
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -45,11 +46,13 @@ func _update_animation() -> void:
 	if is_attacking:
 		if not _sprite.is_playing() or _sprite.animation != "punch":
 			is_attacking = false
+			_sprite.position.x = 0
 			_sprite.play("idle")
 		return
 
 	if Input.is_action_just_pressed(input_prefix + "_punch"):
 		is_attacking = true
+		_sprite.position.x = punch_offset if facing_right else -punch_offset
 		_sprite.play("punch")
 	elif velocity.x != 0:
 		_sprite.play("run")

@@ -712,7 +712,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"punch",
-"speed": 60.0
+"speed": 120.0
 }, {
 "frames": [{
 "duration": 1.0,
