@@ -12,4 +12,5 @@ func _ready() -> void:
 	var p2 = p2_scene.instantiate()
 	p2.input_prefix = "p2"
 	p2.position = Vector2(200, 0)
+	p2.facing_right = false
 	add_child(p2)
