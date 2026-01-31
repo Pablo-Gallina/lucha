@@ -94,7 +94,9 @@ func take_damage(amount: int) -> void:
 	health_changed.emit(health)
 	is_stunned = true
 	_sprite.play("hit")
+	_sprite.modulate = Color.RED
 	await get_tree().create_timer(stun_duration).timeout
+	_sprite.modulate = Color.WHITE
 	is_stunned = false
 	if health == 0:
 		_on_died()
