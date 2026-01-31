@@ -7,6 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="Scisors" type="CharacterBody2D" unique_id=1783979083]
+collision_mask = 4
 script = ExtResource("1_rboc8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=696490531]

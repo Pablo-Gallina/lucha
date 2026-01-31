@@ -4,6 +4,8 @@
 size = Vector2(1328, 32)
 
 [node name="Duela" type="StaticBody2D" unique_id=425698113]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526543464]
 shape = SubResource("RectangleShape2D_7m18w")
