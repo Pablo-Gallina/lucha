@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Lucha"
+run/main_scene="uid://nla10exysyot"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GLOBAL="*uid://dhcxewlg6iui8"
 
 [physics]
 

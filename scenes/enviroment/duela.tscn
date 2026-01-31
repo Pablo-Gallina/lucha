@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dipjf3qhbgso8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m18w"]
+size = Vector2(1328, 32)
+
+[node name="Duela" type="StaticBody2D" unique_id=425698113]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526543464]
+shape = SubResource("RectangleShape2D_7m18w")
