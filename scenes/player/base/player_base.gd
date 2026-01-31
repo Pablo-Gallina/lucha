@@ -16,12 +16,14 @@ signal health_changed(new_health: int)
 signal died
 
 var is_attacking: bool = false
+var is_stunned: bool = false
 var punch_offset: float = 20.0
+@export var stun_duration: float = 0.2
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_jump()
-	if not is_attacking:
+	if not is_attacking and not is_stunned:
 		_handle_movement()
 	else:
 		velocity.x = 0
@@ -48,6 +50,9 @@ func _handle_movement() -> void:
 
 func _update_animation() -> void:
 	if not _sprite is AnimatedSprite2D:
+		return
+
+	if is_stunned:
 		return
 
 	if is_attacking:
@@ -81,14 +86,17 @@ func _handle_attack():
 
 func attack():
 	hitbox.enable()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.4).timeout
 	hitbox.disable()
 
 func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
 	health_changed.emit(health)
+	is_stunned = true
+	_sprite.play("hit")
+	await get_tree().create_timer(stun_duration).timeout
+	is_stunned = false
 	if health == 0:
-		#died.emit()
 		_on_died()
 
 func _on_died() -> void:
