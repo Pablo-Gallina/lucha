@@ -181,6 +181,7 @@
 [ext_resource type="Texture2D" uid="uid://b55ls5bvg0dpq" path="res://assets/sprites/scisors/run/0038.png" id="179_u1ppx"]
 [ext_resource type="Texture2D" uid="uid://bandvgu8qhs4l" path="res://assets/sprites/scisors/run/0039.png" id="180_ucmvu"]
 [ext_resource type="Texture2D" uid="uid://ddltb4tinqna6" path="res://assets/sprites/scisors/run/0040.png" id="181_w064s"]
+[ext_resource type="Script" uid="uid://qflhag168114" path="res://scenes/player/scisors/hitbox.gd" id="182_4e1n5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kehk0"]
 animations = [{
@@ -738,9 +739,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rboc8"]
 size = Vector2(128, 128)
 
-[node name="Scisors" type="CharacterBody2D" unique_id=1783979083]
-collision_mask = 4
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05dyq"]
+size = Vector2(70, 128)
+
+[node name="Scisors" type="CharacterBody2D" unique_id=1783979083 node_paths=PackedStringArray("hitbox")]
+collision_mask = 6
 script = ExtResource("1_rboc8")
+hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2070064178]
 sprite_frames = SubResource("SpriteFrames_kehk0")
@@ -749,3 +754,12 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030413335]
 shape = SubResource("RectangleShape2D_rboc8")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1978387189]
+collision_layer = 2
+script = ExtResource("182_4e1n5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1887967231]
+position = Vector2(144, 0)
+shape = SubResource("RectangleShape2D_05dyq")
+debug_color = Color(0.8654485, 0.0005843073, 0.8633233, 0.41960785)

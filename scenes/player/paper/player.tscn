@@ -7,7 +7,7 @@
 size = Vector2(128, 128)
 
 [node name="Paper" type="CharacterBody2D" unique_id=166887175]
-collision_mask = 4
+collision_mask = 6
 script = ExtResource("1_ktnog")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=138495863]

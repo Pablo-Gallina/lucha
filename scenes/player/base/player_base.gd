@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var jump_force: float = -1200.0
 @export var input_prefix: String = "p1"
 @export var facing_right: bool = true
+@export var hitbox: Area2D
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
@@ -13,6 +14,7 @@ func _physics_process(delta: float) -> void:
 	_handle_movement()
 	move_and_slide()
 	_update_animation()
+	_handle_attack()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
@@ -41,3 +43,16 @@ func _update_animation() -> void:
 		else:
 			sprite.play("idle")
 		sprite.flip_h = not facing_right
+
+	
+func _handle_attack():
+	if Input.is_action_just_pressed(input_prefix + "_punch"):
+		attack()
+
+func attack():
+	hitbox.enable()
+	await get_tree().create_timer(0.1).timeout
+	hitbox.disable()
+
+func take_damage(amount: int) -> void:
+	print("Recibí daño:", amount)

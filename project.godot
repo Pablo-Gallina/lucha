@@ -72,6 +72,12 @@ p2_jump={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="punch"
+2d_physics/layer_3="duela"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
