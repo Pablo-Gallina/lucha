@@ -845,7 +845,7 @@ animations = [{
 size = Vector2(80, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05dyq"]
-size = Vector2(21.5, 128)
+size = Vector2(21.5, 64)
 
 [node name="Scisors" type="CharacterBody2D" unique_id=1783979083 node_paths=PackedStringArray("hitbox")]
 collision_mask = 6

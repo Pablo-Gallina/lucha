@@ -62,6 +62,8 @@ func _update_animation() -> void:
 	else:
 		_sprite.play("idle")
 	_sprite.flip_h = not facing_right
+	if hitbox:
+		hitbox.scale.x = 1 if facing_right else -1
 
 func _handle_attack():
 	if Input.is_action_just_pressed(input_prefix + "_punch"):
