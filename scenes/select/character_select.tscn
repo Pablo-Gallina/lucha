@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://t5dcjcq3x83j"]
+
+[ext_resource type="Script" uid="uid://cvyujuuwo3rrs" path="res://scenes/select/character_select.gd" id="1_h00ua"]
+
+[node name="CharacterSelect" type="Control" unique_id=276953412]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h00ua")
+
+[node name="Label" type="Label" parent="." unique_id=1098780841]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "JUGADOR 1 - ELIGE TU PERSONAJE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1328566559]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 48.0
+offset_right = 170.0
+offset_bottom = 88.0
+
+[node name="BtnRock" type="Button" parent="HBoxContainer" unique_id=597269000]
+layout_mode = 2
+text = "Piedra"
+
+[node name="BtnPaper" type="Button" parent="HBoxContainer" unique_id=772560334]
+layout_mode = 2
+text = "Papel"
+
+[node name="BtnScissors" type="Button" parent="HBoxContainer" unique_id=611931009]
+layout_mode = 2
+text = "Tijera"

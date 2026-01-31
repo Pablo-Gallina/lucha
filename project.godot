@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Lucha"
-run/main_scene="uid://nla10exysyot"
+run/main_scene="uid://t5dcjcq3x83j"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
