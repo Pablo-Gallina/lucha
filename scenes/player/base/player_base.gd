@@ -1,16 +1,23 @@
 class_name PlayerBase
 extends CharacterBody2D
 
+@onready var _sprite: AnimatedSprite2D = $Sprite2D
+
 @export var speed: float = 450.0
 @export var gravity: float = 3000.0
 @export var jump_force: float = -1200.0
 @export var input_prefix: String = "p1"
 @export var facing_right: bool = true
 
+var is_attacking: bool = false
+
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_jump()
-	_handle_movement()
+	if not is_attacking:
+		_handle_movement()
+	else:
+		velocity.x = 0
 	move_and_slide()
 	_update_animation()
 
@@ -32,12 +39,21 @@ func _handle_movement() -> void:
 	velocity.x = dir_x * speed
 
 func _update_animation() -> void:
-	var sprite = get_node_or_null("Sprite2D")
+	if not _sprite is AnimatedSprite2D:
+		return
 
-	if sprite is AnimatedSprite2D:
-		if velocity.x != 0:
-			sprite.play("run")
-			facing_right = velocity.x > 0
-		else:
-			sprite.play("idle")
-		sprite.flip_h = not facing_right
+	if is_attacking:
+		if not _sprite.is_playing() or _sprite.animation != "punch":
+			is_attacking = false
+			_sprite.play("idle")
+		return
+
+	if Input.is_action_just_pressed(input_prefix + "_punch"):
+		is_attacking = true
+		_sprite.play("punch")
+	elif velocity.x != 0:
+		_sprite.play("run")
+		facing_right = velocity.x > 0
+	else:
+		_sprite.play("idle")
+	_sprite.flip_h = not facing_right
