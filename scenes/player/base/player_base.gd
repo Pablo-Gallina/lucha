@@ -56,6 +56,11 @@ func _update_animation() -> void:
 		is_attacking = true
 		_sprite.position.x = punch_offset if facing_right else -punch_offset
 		_sprite.play("punch")
+	elif not is_on_floor():
+		if _sprite.animation != "jump":
+			_sprite.play("jump")
+		if velocity.x != 0:
+			facing_right = velocity.x > 0
 	elif velocity.x != 0:
 		_sprite.play("run")
 		facing_right = velocity.x > 0

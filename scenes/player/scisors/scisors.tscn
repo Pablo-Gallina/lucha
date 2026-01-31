@@ -222,7 +222,7 @@
 [ext_resource type="Texture2D" uid="uid://b55ls5bvg0dpq" path="res://assets/sprites/scisors/run/0038.png" id="179_u1ppx"]
 [ext_resource type="Texture2D" uid="uid://bandvgu8qhs4l" path="res://assets/sprites/scisors/run/0039.png" id="180_ucmvu"]
 [ext_resource type="Texture2D" uid="uid://ddltb4tinqna6" path="res://assets/sprites/scisors/run/0040.png" id="181_w064s"]
-[ext_resource type="Script" uid="uid://qflhag168114" path="res://scenes/player/scisors/hitbox.gd" id="182_4e1n5"]
+[ext_resource type="Script" path="res://scenes/player/scisors/hitbox.gd" id="182_4e1n5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kehk0"]
 animations = [{
@@ -707,7 +707,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 60.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -928,9 +928,10 @@ hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2070064178]
 sprite_frames = SubResource("SpriteFrames_kehk0")
-animation = &"hit"
+animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.9298731
+frame = 14
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030413335]
 shape = SubResource("RectangleShape2D_rboc8")
