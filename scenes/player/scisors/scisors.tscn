@@ -842,10 +842,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rboc8"]
-size = Vector2(128, 128)
+size = Vector2(80, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05dyq"]
-size = Vector2(70, 128)
+size = Vector2(21.5, 128)
 
 [node name="Scisors" type="CharacterBody2D" unique_id=1783979083 node_paths=PackedStringArray("hitbox")]
 collision_mask = 6
@@ -867,6 +867,6 @@ collision_layer = 2
 script = ExtResource("182_4e1n5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1887967231]
-position = Vector2(144, 0)
+position = Vector2(61.25, 0)
 shape = SubResource("RectangleShape2D_05dyq")
 debug_color = Color(0.8654485, 0.0005843073, 0.8633233, 0.41960785)
