@@ -89,17 +89,10 @@ func _update_animation() -> void:
 	if is_stunned:
 		return
 
-	if is_attacking:
-		if not _sprite.is_playing() or _sprite.animation != "punch":
-			is_attacking = false
-			_sprite.position.x = 0
-			_sprite.play("idle")
-		return
-
-	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing:
-		is_attacking = true
-		_sprite.position.x = punch_offset if facing_right else -punch_offset
-		_sprite.play("punch")
+	if is_figthing or _is_delay_hit:
+		if _sprite.animation != "punch":
+			_sprite.position.x = punch_offset if facing_right else -punch_offset
+			_sprite.play("punch")
 	elif not is_on_floor():
 		if _sprite.animation != "jump":
 			_sprite.play("jump")
@@ -125,12 +118,15 @@ func _handle_attack():
 		attack()
 
 func attack():
+	_sprite.position.x = punch_offset if facing_right else -punch_offset
+	_sprite.play("punch")
 	hitbox.enable()
 	is_figthing = true
 	await get_tree().create_timer(hit_velocity).timeout
 	hitbox.disable()
 	is_figthing = false
 	_is_delay_hit = false
+	_sprite.position.x = 0
 
 func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
