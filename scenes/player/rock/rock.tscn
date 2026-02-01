@@ -925,7 +925,8 @@ size = Vector2(21.5, 64)
 collision_mask = 6
 script = ExtResource("1_6yndn")
 hitbox = NodePath("Hitbox")
-delay_hit = 0.7
+hit_velocity = 0.3
+delay_hit = 0.6
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1027585525]
 sprite_frames = SubResource("SpriteFrames_g048x")

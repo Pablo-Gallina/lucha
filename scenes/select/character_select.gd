@@ -4,9 +4,9 @@ var selections: Array = []
 var current_player: int = 1
 																																																										 
 @onready var label: Label = $Label
-@onready var btn_rock: Button = $HBoxContainer/BtnRock
-@onready var btn_paper: Button = $HBoxContainer/BtnPaper
-@onready var btn_scissors: Button = $HBoxContainer/BtnScissors                                                                                                                                                                         
+@onready var btn_rock: TextureButton = $HBoxContainer/BtnRock
+@onready var btn_paper: TextureButton = $HBoxContainer/BtnPaper
+@onready var btn_scissors: TextureButton = $HBoxContainer/BtnScissors                                                                                                                                                                         
 																																																										 
 func _ready() -> void:
 	btn_rock.pressed.connect(_on_character_selected.bind("res://scenes/player/rock/rock.tscn"))

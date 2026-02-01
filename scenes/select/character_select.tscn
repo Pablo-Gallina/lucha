@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://t5dcjcq3x83j"]
 
 [ext_resource type="Script" uid="uid://cvyujuuwo3rrs" path="res://scenes/select/character_select.gd" id="1_h00ua"]
+[ext_resource type="FontFile" uid="uid://clop1efxifi2c" path="res://assets/fonts/Kenney Future Narrow.ttf" id="2_atak5"]
+[ext_resource type="Texture2D" uid="uid://clklbriefqpwf" path="res://assets/sprites/ui/buttons/button_square_gradient.svg" id="2_d7n3n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yw78s"]
+font = ExtResource("2_atak5")
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atak5"]
+atlas = ExtResource("2_d7n3n")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw78s"]
+atlas = ExtResource("2_d7n3n")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7n3n"]
+atlas = ExtResource("2_d7n3n")
 
 [node name="CharacterSelect" type="Control" unique_id=276953412]
 layout_mode = 3
@@ -11,25 +26,60 @@ script = ExtResource("1_h00ua")
 
 [node name="Label" type="Label" parent="." unique_id=1098780841]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 252.0
+offset_top = 218.0
+offset_right = 923.0
+offset_bottom = 300.0
 text = "JUGADOR 1 - ELIGE TU PERSONAJE"
+label_settings = SubResource("LabelSettings_yw78s")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1328566559]
 layout_mode = 0
+offset_left = 475.0
+offset_top = 302.0
+offset_right = 675.0
+offset_bottom = 366.0
+
+[node name="BtnRock" type="TextureButton" parent="HBoxContainer" unique_id=1728194558]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_atak5")
+
+[node name="Label" type="Label" parent="HBoxContainer/BtnRock" unique_id=167676299]
+layout_mode = 0
 offset_left = 1.0
-offset_top = 48.0
-offset_right = 170.0
-offset_bottom = 88.0
+offset_top = -2.0
+offset_right = 61.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 32
+text = "🪨"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BtnRock" type="Button" parent="HBoxContainer" unique_id=597269000]
+[node name="BtnPaper" type="TextureButton" parent="HBoxContainer" unique_id=1692419846]
 layout_mode = 2
-text = "Piedra"
+texture_normal = SubResource("AtlasTexture_yw78s")
 
-[node name="BtnPaper" type="Button" parent="HBoxContainer" unique_id=772560334]
-layout_mode = 2
-text = "Papel"
+[node name="Label" type="Label" parent="HBoxContainer/BtnPaper" unique_id=397457521]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 63.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 32
+text = "🧻"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="BtnScissors" type="Button" parent="HBoxContainer" unique_id=611931009]
+[node name="BtnScissors" type="TextureButton" parent="HBoxContainer" unique_id=2120666004]
 layout_mode = 2
-text = "Tijera"
+texture_normal = SubResource("AtlasTexture_d7n3n")
+
+[node name="Label" type="Label" parent="HBoxContainer/BtnScissors" unique_id=1603886220]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 64.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 32
+text = "✂️"
+horizontal_alignment = 1
+vertical_alignment = 1
