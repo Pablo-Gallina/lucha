@@ -153,4 +153,5 @@ func _update_shadow() -> void:
 	_shadow.modulate.a = scale_factor
 
 func _on_died() -> void:
+	died.emit()
 	queue_free()

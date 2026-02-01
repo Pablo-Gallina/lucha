@@ -1,8 +1,13 @@
 extends Node2D
 
 const PLAYER_INDICATOR = preload("uid://tqlhfhbrkjkj")
+var _heart_texture := preload("res://assets/enviroment/heart.png")
+var _hud: CanvasLayer
 
 func _ready() -> void:
+	_hud = CanvasLayer.new()
+	add_child(_hud)
+	_draw_hearts()
 	var p1_scene = load(GLOBAL.player_selections[0])
 	var p2_scene = load(GLOBAL.player_selections[1])
 
@@ -35,6 +40,33 @@ func _ready() -> void:
 	# verificar el daño del p2 al p1
 	var damageP2: int = get_damage_to_opponent(P2_CHARACTER, P1_CHARACTER)
 	p2.hitbox.damage = damageP2
+
+	p1.died.connect(_on_player_died.bind("p1"))
+	p2.died.connect(_on_player_died.bind("p2"))
+
+func _draw_hearts() -> void:
+	for child in _hud.get_children():
+		child.queue_free()
+	var vw := get_viewport().get_visible_rect().size.x
+	for i in GLOBAL.p1_lives:
+		var h := Sprite2D.new()
+		h.texture = _heart_texture
+		h.scale = Vector2(0.5, 0.5)
+		h.position = Vector2(40 + i * 40, 40)
+		_hud.add_child(h)
+	for i in GLOBAL.p2_lives:
+		var h := Sprite2D.new()
+		h.texture = _heart_texture
+		h.scale = Vector2(0.5, 0.5)
+		h.position = Vector2(vw - 40 - i * 40, 40)
+		_hud.add_child(h)
+
+func _on_player_died(prefix: String) -> void:
+	if prefix == "p1":
+		GLOBAL.p1_lives -= 1
+	else:
+		GLOBAL.p2_lives -= 1
+	_draw_hearts()
 
 func get_damage_to_opponent(player: String, opponent: String) -> int:
 	print(GLOBAL.DAMAGE_BY_CHARACTERS)
