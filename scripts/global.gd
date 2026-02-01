@@ -4,6 +4,27 @@ var score : int
 var axis : Vector2
 var player_selections: Array = []
 
+const CHARACTERS_TYPES = {
+	"SCISSORS": "sci",
+	"ROCK": "roc",
+	"PAPER": "pap",
+}
+
+const DAMAGE_BY_CHARACTERS = {
+	CHARACTERS_TYPES.SCISSORS: {
+		CHARACTERS_TYPES.PAPER: 100,
+		CHARACTERS_TYPES.ROCK: 10,
+	},
+	CHARACTERS_TYPES.PAPER: {
+		CHARACTERS_TYPES.SCISSORS: 10,
+		CHARACTERS_TYPES.ROCK: 100,
+	},
+	CHARACTERS_TYPES.ROCK: {
+		CHARACTERS_TYPES.SCISSORS: 100,
+		CHARACTERS_TYPES.PAPER: 10,
+	}
+}
+
 func get_axis() -> Vector2:
 	axis.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 	axis.y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
