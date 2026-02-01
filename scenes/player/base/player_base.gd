@@ -45,9 +45,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
-	_handle_jump()
 	if not is_attacking and not is_stunned and not _is_delay_hit:
 		_handle_movement()
+		_handle_jump()
 	else:
 		velocity.x = 0
 	move_and_slide()
@@ -63,7 +63,7 @@ func _apply_gravity(delta: float) -> void:
 		_floor_y = global_position.y
 
 func _handle_jump() -> void:
-	if is_on_floor() and Input.is_action_just_pressed(input_prefix + "_jump"):
+	if is_on_floor() and not is_stunned and Input.is_action_just_pressed(input_prefix + "_jump"):
 		velocity.y = jump_force
 
 func _handle_movement() -> void:
@@ -106,11 +106,14 @@ func _update_animation() -> void:
 		hitbox.scale.x = 1 if facing_right else -1
 
 func _handle_attack():
-	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing and !_is_delay_hit:
+	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing and !_is_delay_hit and !is_stunned:
 		_is_delay_hit = true
 		await get_tree().create_timer(delay_hit).timeout
+		if is_stunned:
+			_is_delay_hit = false
+			return
 		print("pegue")
-		await attack()
+		attack()
 
 func attack():
 	hitbox.enable()
