@@ -22,12 +22,21 @@ var is_attacking: bool = false
 var is_stunned: bool = false
 var punch_offset: float = 20.0
 var is_figthing: bool = false
+var _health_label := Label.new()
 @export var stun_duration: float = 0.2
 
 var _shadow: Sprite2D
 var _floor_y: float = 0.0
 
 func _ready() -> void:
+	add_child(_health_label)
+	
+	_health_label.position = Vector2(-15, -160)
+	_health_label.text = str(health) + "%"
+	if input_prefix == "p1":
+		_health_label.modulate = Color.REBECCA_PURPLE
+	else:
+		_health_label.modulate = Color.ORANGE
 	_floor_y = global_position.y
 	_shadow = Sprite2D.new()
 	var img := Image.create(96, 24, false, Image.FORMAT_RGBA8)
@@ -125,6 +134,7 @@ func attack():
 
 func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
+	_health_label.text = str(health) + "%"
 	health_changed.emit(health)
 	is_stunned = true
 	_sprite.play("hit")

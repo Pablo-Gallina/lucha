@@ -13,7 +13,7 @@ func _ready() -> void:
 	var ind1 = PLAYER_INDICATOR.instantiate()
 	ind1.position = Vector2(0, -90)
 	p1.add_child(ind1)
-	ind1.setup("J1", Color.GOLD)
+	ind1.setup("J1", Color.REBECCA_PURPLE)
 
 	var p2 = p2_scene.instantiate()
 	p2.input_prefix = "p2"
@@ -23,7 +23,7 @@ func _ready() -> void:
 	var ind2 = PLAYER_INDICATOR.instantiate()
 	ind2.position = Vector2(0, -90)
 	p2.add_child(ind2)
-	ind2.setup("J2", Color.GREEN)
+	ind2.setup("J2", Color.ORANGE)
 	
 	# Fuerza de golpe por personaje
 	var P1_CHARACTER: String = p1.CHARACTER
