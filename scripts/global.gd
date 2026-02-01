@@ -5,6 +5,7 @@ var axis : Vector2
 var player_selections: Array = []
 var p1_lives : int = 2
 var p2_lives : int = 2
+var winner: String = ""
 
 const CHARACTERS_TYPES = {
 	"SCISSORS": "sci",
