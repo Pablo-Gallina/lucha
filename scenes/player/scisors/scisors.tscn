@@ -919,7 +919,7 @@ animations = [{
 size = Vector2(80, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_05dyq"]
-size = Vector2(21.5, 64)
+size = Vector2(29.5, 64)
 
 [node name="Scisors" type="CharacterBody2D" unique_id=1783979083 node_paths=PackedStringArray("hitbox")]
 collision_mask = 6
@@ -928,10 +928,8 @@ hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2070064178]
 sprite_frames = SubResource("SpriteFrames_kehk0")
-animation = &"jump"
+animation = &"punch"
 autoplay = "idle"
-frame = 14
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030413335]
 shape = SubResource("RectangleShape2D_rboc8")
@@ -941,6 +939,6 @@ collision_layer = 2
 script = ExtResource("182_4e1n5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1887967231]
-position = Vector2(61.25, 0)
+position = Vector2(65.25, 0)
 shape = SubResource("RectangleShape2D_05dyq")
 debug_color = Color(0.8654485, 0.0005843073, 0.8633233, 0.41960785)

@@ -787,7 +787,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"punch",
-"speed": 120.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -930,6 +930,8 @@ hitbox = NodePath("Hitbox")
 sprite_frames = SubResource("SpriteFrames_g048x")
 animation = &"punch"
 autoplay = "idle"
+frame = 24
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1251857808]
 shape = SubResource("RectangleShape2D_6yndn")

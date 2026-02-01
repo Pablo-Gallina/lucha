@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var hitbox: Area2D
 @export var max_health: int = 100
 @export var health: int = 100
+@export var hit_velocity: float = 0.4
 
 signal health_changed(new_health: int)
 signal died
@@ -18,6 +19,7 @@ signal died
 var is_attacking: bool = false
 var is_stunned: bool = false
 var punch_offset: float = 20.0
+var is_figthing: bool = false
 @export var stun_duration: float = 0.2
 
 func _physics_process(delta: float) -> void:
@@ -62,7 +64,7 @@ func _update_animation() -> void:
 			_sprite.play("idle")
 		return
 
-	if Input.is_action_just_pressed(input_prefix + "_punch"):
+	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing:
 		is_attacking = true
 		_sprite.position.x = punch_offset if facing_right else -punch_offset
 		_sprite.play("punch")
@@ -81,13 +83,15 @@ func _update_animation() -> void:
 		hitbox.scale.x = 1 if facing_right else -1
 
 func _handle_attack():
-	if Input.is_action_just_pressed(input_prefix + "_punch"):
+	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing:
 		attack()
 
 func attack():
 	hitbox.enable()
-	await get_tree().create_timer(0.4).timeout
+	is_figthing = true
+	await get_tree().create_timer(hit_velocity).timeout
 	hitbox.disable()
+	is_figthing = false
 
 func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
