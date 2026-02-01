@@ -24,13 +24,9 @@ func _ready() -> void:
 	
 	# verificar el daño del p2 al p1
 	var damageP2: int = get_damage_to_opponent(P2_CHARACTER, P1_CHARACTER)
-	p1.hitbox.damage = damageP2
-	
-	print(p1.hitbox.damage)
-	print(p2.hitbox.damage)
+	p2.hitbox.damage = damageP2
 
 func get_damage_to_opponent(player: String, opponent: String) -> int:
-	#print(GLOBAL.DAMAGE_BY_CHARACTERS)
-	#var damage_to_opponnent: int = GLOBAL.DAMAGE_BY_CHARACTERS[player][opponent]
-	#return damage_to_opponnent
-	return 25
+	print(GLOBAL.DAMAGE_BY_CHARACTERS)
+	var damage_to_opponnent: int = GLOBAL.DAMAGE_BY_CHARACTERS[player][opponent]
+	return damage_to_opponnent
