@@ -185,28 +185,17 @@
 [ext_resource type="Texture2D" uid="uid://dr600a33rsw4v" path="res://assets/sprites/rock/punch/0013.png" id="195_y0kdn"]
 [ext_resource type="Texture2D" uid="uid://ch5cw1xa0k1bx" path="res://assets/sprites/rock/run/0014.png" id="196_2bexv"]
 [ext_resource type="Texture2D" uid="uid://civip0vtcjk2q" path="res://assets/sprites/rock/punch/0014.png" id="196_ppa1n"]
-[ext_resource type="Texture2D" uid="uid://dbgy212eisr5r" path="res://assets/sprites/rock/punch/0015.png" id="197_ax1js"]
 [ext_resource type="Texture2D" uid="uid://cr8ex4l1x34nq" path="res://assets/sprites/rock/run/0015.png" id="197_tydv1"]
 [ext_resource type="Texture2D" uid="uid://d3nkmp5pyxu7w" path="res://assets/sprites/rock/run/0016.png" id="198_8e2au"]
-[ext_resource type="Texture2D" uid="uid://bubvtcarh0gxb" path="res://assets/sprites/rock/punch/0016.png" id="198_cdcyu"]
 [ext_resource type="Texture2D" uid="uid://butjomutl6f2g" path="res://assets/sprites/rock/run/0017.png" id="199_ci26g"]
-[ext_resource type="Texture2D" uid="uid://cdb74cjom0qfj" path="res://assets/sprites/rock/punch/0017.png" id="199_wjeyh"]
 [ext_resource type="Texture2D" uid="uid://bf54r0skdldvt" path="res://assets/sprites/rock/run/0018.png" id="200_6opu4"]
-[ext_resource type="Texture2D" uid="uid://3eqx7caft86m" path="res://assets/sprites/rock/punch/0018.png" id="200_qt7xq"]
 [ext_resource type="Texture2D" uid="uid://bnjcew0rwstyv" path="res://assets/sprites/rock/run/0019.png" id="201_3tu32"]
-[ext_resource type="Texture2D" uid="uid://cpqo6sxkcwr8i" path="res://assets/sprites/rock/punch/0019.png" id="201_pur47"]
 [ext_resource type="Texture2D" uid="uid://d00352pmabayy" path="res://assets/sprites/rock/run/0020.png" id="202_cqcr0"]
-[ext_resource type="Texture2D" uid="uid://btxo7pahojltk" path="res://assets/sprites/rock/punch/0020.png" id="202_e8sel"]
 [ext_resource type="Texture2D" uid="uid://d032nsp4ghfug" path="res://assets/sprites/rock/run/0021.png" id="203_1og73"]
-[ext_resource type="Texture2D" uid="uid://d4dn1uqcbod6o" path="res://assets/sprites/rock/punch/0021.png" id="203_6eni8"]
 [ext_resource type="Texture2D" uid="uid://oedjhtbckbx0" path="res://assets/sprites/rock/run/0022.png" id="204_1yftk"]
-[ext_resource type="Texture2D" uid="uid://xeoxg8uvtwtm" path="res://assets/sprites/rock/punch/0022.png" id="204_cnx5x"]
 [ext_resource type="Texture2D" uid="uid://c1vj5ehq3vu0l" path="res://assets/sprites/rock/run/0023.png" id="205_3pcvf"]
-[ext_resource type="Texture2D" uid="uid://b4um2yseh7fy5" path="res://assets/sprites/rock/punch/0023.png" id="205_ojthw"]
 [ext_resource type="Texture2D" uid="uid://th2g41irvps7" path="res://assets/sprites/rock/run/0024.png" id="206_1fq5n"]
-[ext_resource type="Texture2D" uid="uid://bq6vw21i5ledv" path="res://assets/sprites/rock/punch/0024.png" id="206_meydg"]
 [ext_resource type="Texture2D" uid="uid://ckvgtmn0amqf0" path="res://assets/sprites/rock/run/0025.png" id="207_hxdae"]
-[ext_resource type="Texture2D" uid="uid://c6lmbi4neaefx" path="res://assets/sprites/rock/punch/0025.png" id="207_rkkkd"]
 [ext_resource type="Texture2D" uid="uid://bh0vf2thfbbu1" path="res://assets/sprites/rock/run/0026.png" id="208_5n58t"]
 [ext_resource type="Texture2D" uid="uid://dnyalahpnax3h" path="res://assets/sprites/rock/run/0027.png" id="209_w5qp8"]
 [ext_resource type="Texture2D" uid="uid://6w12c3ld4guc" path="res://assets/sprites/rock/run/0028.png" id="210_f8r2g"]
@@ -751,39 +740,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("196_ppa1n")
-}, {
-"duration": 1.0,
-"texture": ExtResource("197_ax1js")
-}, {
-"duration": 1.0,
-"texture": ExtResource("198_cdcyu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("199_wjeyh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("200_qt7xq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("201_pur47")
-}, {
-"duration": 1.0,
-"texture": ExtResource("202_e8sel")
-}, {
-"duration": 1.0,
-"texture": ExtResource("203_6eni8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("204_cnx5x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("205_ojthw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("206_meydg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("207_rkkkd")
 }],
 "loop": false,
 "name": &"punch",
@@ -932,7 +888,7 @@ delay_hit = 0.6
 sprite_frames = SubResource("SpriteFrames_g048x")
 animation = &"punch"
 autoplay = "idle"
-frame = 24
+frame = 13
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1251857808]
