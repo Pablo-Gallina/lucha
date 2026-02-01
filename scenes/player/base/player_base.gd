@@ -27,7 +27,7 @@ var is_figthing: bool = false
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_jump()
-	if not is_attacking and not is_stunned:
+	if not is_attacking and not is_stunned and not _is_delay_hit:
 		_handle_movement()
 	else:
 		velocity.x = 0
