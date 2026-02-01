@@ -3,7 +3,7 @@ extends Control
 @onready var label: Label = $Label
 
 func _ready() -> void:
-	label.text = GLOBAL.winner + " GANO! Presionar enter para volver a empezar"
+	label.text = GLOBAL.winner + " GANO!"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Enter"):
