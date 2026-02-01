@@ -785,7 +785,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("207_rkkkd")
 }],
-"loop": true,
+"loop": false,
 "name": &"punch",
 "speed": 120.0
 }, {
@@ -928,14 +928,14 @@ hitbox = NodePath("Hitbox")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1027585525]
 sprite_frames = SubResource("SpriteFrames_g048x")
-animation = &"run"
+animation = &"punch"
 autoplay = "idle"
-frame_progress = 0.07734799
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1251857808]
 shape = SubResource("RectangleShape2D_6yndn")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1030870586]
+light_mask = 2
 collision_layer = 2
 script = ExtResource("223_kthkd")
 
