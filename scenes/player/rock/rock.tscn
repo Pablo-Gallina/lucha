@@ -222,7 +222,7 @@
 [ext_resource type="Texture2D" uid="uid://065svru2xq6a" path="res://assets/sprites/rock/run/0038.png" id="220_y0kdn"]
 [ext_resource type="Texture2D" uid="uid://bhnwkubfph23" path="res://assets/sprites/rock/run/0039.png" id="221_ppa1n"]
 [ext_resource type="Texture2D" uid="uid://0eiffqktp6k3" path="res://assets/sprites/rock/run/0040.png" id="222_ax1js"]
-[ext_resource type="Script" uid="uid://b60pjsq71uhir" path="res://scenes/player/rock/hitbox.gd" id="223_kthkd"]
+[ext_resource type="Script" path="res://scenes/player/rock/hitbox.gd" id="223_kthkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g048x"]
 animations = [{
@@ -925,6 +925,7 @@ size = Vector2(21.5, 64)
 collision_mask = 6
 script = ExtResource("1_6yndn")
 hitbox = NodePath("Hitbox")
+delay_hit = 0.7
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1027585525]
 sprite_frames = SubResource("SpriteFrames_g048x")

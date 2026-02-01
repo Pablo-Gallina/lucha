@@ -12,6 +12,8 @@ extends CharacterBody2D
 @export var max_health: int = 100
 @export var health: int = 100
 @export var hit_velocity: float = 0.4
+@export var delay_hit: float = 0
+var _is_delay_hit := false
 
 signal health_changed(new_health: int)
 signal died
@@ -83,8 +85,11 @@ func _update_animation() -> void:
 		hitbox.scale.x = 1 if facing_right else -1
 
 func _handle_attack():
-	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing:
-		attack()
+	if Input.is_action_just_pressed(input_prefix + "_punch") and !is_figthing and !_is_delay_hit:
+		_is_delay_hit = true
+		await get_tree().create_timer(delay_hit).timeout
+		print("pegue")
+		await attack()
 
 func attack():
 	hitbox.enable()
@@ -92,6 +97,7 @@ func attack():
 	await get_tree().create_timer(hit_velocity).timeout
 	hitbox.disable()
 	is_figthing = false
+	_is_delay_hit = false
 
 func take_damage(amount: int) -> void:
 	health = max(health - amount, 0)
