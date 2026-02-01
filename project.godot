@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GLOBAL="*uid://dhcxewlg6iui8"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 p1_left={
