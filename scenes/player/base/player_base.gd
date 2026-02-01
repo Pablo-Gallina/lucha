@@ -22,6 +22,25 @@ var punch_offset: float = 20.0
 var is_figthing: bool = false
 @export var stun_duration: float = 0.2
 
+var _shadow: Sprite2D
+var _floor_y: float = 0.0
+
+func _ready() -> void:
+	_floor_y = global_position.y
+	_shadow = Sprite2D.new()
+	var img := Image.create(96, 24, false, Image.FORMAT_RGBA8)
+	var center := Vector2(48, 12)
+	var radius := Vector2(48, 12)
+	for x in 96:
+		for y in 24:
+			var dist := Vector2((x - center.x) / radius.x, (y - center.y) / radius.y).length()
+			if dist <= 1.0:
+				var alpha := (1.0 - dist) * 0.5
+				img.set_pixel(x, y, Color(0, 0, 0, alpha))
+	_shadow.texture = ImageTexture.create_from_image(img)
+	add_child(_shadow)
+	move_child(_shadow, 0)
+
 func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_handle_jump()
@@ -32,12 +51,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_update_animation()
 	_handle_attack()
+	_update_shadow()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		velocity.y = 0.0
+		_floor_y = global_position.y
 
 func _handle_jump() -> void:
 	if is_on_floor() and Input.is_action_just_pressed(input_prefix + "_jump"):
@@ -104,6 +125,13 @@ func take_damage(amount: int) -> void:
 	is_stunned = false
 	if health == 0:
 		_on_died()
+
+func _update_shadow() -> void:
+	var height_diff := _floor_y - global_position.y
+	_shadow.global_position = Vector2(global_position.x - 10, _floor_y + 64)
+	var scale_factor := clampf(1.0 - height_diff / 600.0, 0.3, 1.0)
+	_shadow.scale = Vector2(scale_factor, scale_factor)
+	_shadow.modulate.a = scale_factor
 
 func _on_died() -> void:
 	queue_free()

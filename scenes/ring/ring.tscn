@@ -2,11 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://dipjf3qhbgso8" path="res://scenes/enviroment/duela.tscn" id="1_51e1t"]
 [ext_resource type="Script" uid="uid://d3jposqxx4qp4" path="res://scenes/ring/ring.gd" id="1_ygikk"]
+[ext_resource type="Texture2D" uid="uid://bfjjj4tlkqxka" path="res://assets/enviroment/bg.png" id="2_ygikk"]
+[ext_resource type="PackedScene" uid="uid://djdfyh61mp1be" path="res://scenes/enviroment/cuerdas.tscn" id="4_n35nm"]
 
 [node name="Ring" type="Node2D" unique_id=437944324]
 script = ExtResource("1_ygikk")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=485296981]
+position = Vector2(0.9999999, 104.00006)
+scale = Vector2(1.1496598, 0.8359375)
+texture = ExtResource("2_ygikk")
+
 [node name="Duela" parent="." unique_id=425698113 instance=ExtResource("1_51e1t")]
-position = Vector2(0, 176)
+position = Vector2(0, 205)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1076183232]
+
+[node name="Cuerdas" parent="." unique_id=1261992749 instance=ExtResource("4_n35nm")]
+position = Vector2(480, -27)
+
+[node name="Cuerdas2" parent="." unique_id=1021381595 instance=ExtResource("4_n35nm")]
+position = Vector2(-480, -27)
