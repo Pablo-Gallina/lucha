@@ -1,5 +1,7 @@
 extends Node2D
 
+const PLAYER_INDICATOR = preload("uid://tqlhfhbrkjkj")
+
 func _ready() -> void:
 	var p1_scene = load(GLOBAL.player_selections[0])
 	var p2_scene = load(GLOBAL.player_selections[1])
@@ -8,12 +10,20 @@ func _ready() -> void:
 	p1.input_prefix = "p1"
 	p1.position = Vector2(-200, 0)
 	add_child(p1)
+	var ind1 = PLAYER_INDICATOR.instantiate()
+	ind1.position = Vector2(0, -90)
+	p1.add_child(ind1)
+	ind1.setup("J1", Color.GOLD)
 
 	var p2 = p2_scene.instantiate()
 	p2.input_prefix = "p2"
 	p2.position = Vector2(200, 0)
 	p2.facing_right = false
 	add_child(p2)
+	var ind2 = PLAYER_INDICATOR.instantiate()
+	ind2.position = Vector2(0, -90)
+	p2.add_child(ind2)
+	ind2.setup("J2", Color.GREEN)
 	
 	# Fuerza de golpe por personaje
 	var P1_CHARACTER: String = p1.CHARACTER
